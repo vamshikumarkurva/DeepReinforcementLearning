@@ -21,7 +21,7 @@ Note: Policy Gradients is an on-policy algorithm, i.e. everytime the network/pol
 
 ## Actor-critic Algorithms:
 
-These algorithms estimate the value-function or Q-function of the current policy using the critic network and uses it to improve the policy(Actor network). In general, value function is estimated using the critic network.
+Plocy Gradient algorithms like REINFORCE needs to generate the entire episode until the end, to estimate the returns and make an update. For environments where episodes last for hundereds or thousands of time frames, these algorithms need to wait for a long time just to make a single update. This kind of algorithms comes under Monte-Carlo algorithms. Actor-Critic algorithms on the other hand estimate the value-function or Q-function of the current policy using the critic network and uses it to improve the policy(Actor network). These algorithms fall under temporal difference (TD) methods, can make an update at every single step of the episode using the immediate reward and bootstrap estimate. In general, value function is estimated using the critic network.
 
 ![](http://latex.codecogs.com/svg.latex?V^{\pi}(s_t)%3DR(s_t%2Ca_t)%2B\sum_{a_t}\pi(a_t%2Fs_t)\Big(\sum_{s_{t%27}}P(s_{t%27}%2Fs_t%2Ca_t)V^{\pi}(s_{t%27})\Big))
 
